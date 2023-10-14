@@ -1,13 +1,11 @@
-<p-toolbar>
-    <div class="p-toolbar-group-start">
-        <p-button label="New" icon="pi pi-check" class="mr-2"></p-button>
-        <p-button label="Upload" icon="pi pi-upload" styleClass="p-button-success"></p-button>
-        <i class="p-toolbar-separator pi pi-bars mr-2" style="vertical-align: middle"></i>
-        <p-splitButton label="Save" icon="pi pi-check" styleClass="p-button-warning"></p-splitButton>
-    </div>
-    <div class="p-toolbar-group-end">
-        <p-button icon="pi pi-search" class="mr-2"></p-button>
-        <p-button icon="pi pi-calendar" styleClass="p-button-success mr-2"></p-button>
-        <p-button icon="pi pi-times" styleClass="p-button-danger"></p-button>
-    </div>
-</p-toolbar>
+
+<div class="card">
+    <p-menubar [model]="items">
+        <ng-template pTemplate="start">
+            <img src="../../../assets/ISI.png" height="40" class="mr-2" alt="ISI" />
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText placeholder="Search" class="w-full" />
+        </ng-template>
+    </p-menubar>
+</div>

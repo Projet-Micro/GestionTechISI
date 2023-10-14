@@ -5,26 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { ToolbarModule } from 'primeng/toolbar';
-import { Button, ButtonModule } from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
+import { MenubarModule } from 'primeng/menubar';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-  ],
+  declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
+    //primeng modules
     ButtonModule,
     SplitButtonModule,
+    MenubarModule,
+
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToolbarModule,
-
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
