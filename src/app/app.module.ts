@@ -16,12 +16,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FooterComponent,
   ],
   imports: [
+    ButtonModule,
+    SplitButtonModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ToolbarModule,
-    ButtonModule,
-    SplitButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
