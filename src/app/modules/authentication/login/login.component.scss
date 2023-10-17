@@ -1,0 +1,27 @@
+.login-modal-container {
+    width : 350px;
+    height: 600px;
+    border-radius: 4px;
+    background-color: var(--secondary-color-lighter);
+    border: 1px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 16px 16px;
+    align-items: center;
+    .title {
+        font-weight: 500;
+        font-size: 24px;
+        color: var(--primary-color);
+    }
+    .input-form {
+        align-self: flex-start;
+    }
+    .label {
+        font-weight: 400;
+        font-size:16px;
+        
+    }
+    .input-field {
+        padding : 8px 6px;
+    }
+}

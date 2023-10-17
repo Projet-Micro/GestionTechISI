@@ -1,2 +1,12 @@
 @import "primeicons/primeicons.css";
 @import "primeng/resources/primeng.css";
+:root {
+    --primary-color: #3536E6;
+    --accent-color: #05B2DC;
+    --secondary-color: #D6D6FA;
+    --secondary-color-lighter: #FFFFFF;
+    --primary-color-lighter: #3E40E7;
+    .color-acc {
+        color: var(--accent-color);
+    }
+}
