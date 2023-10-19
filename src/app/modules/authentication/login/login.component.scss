@@ -1,13 +1,15 @@
 .login-modal-container {
     width : 350px;
-    height: 600px;
-    border-radius: 4px;
+    height: 570px;
+    border-radius: 8px;
     background-color: var(--secondary-color-lighter);
     border: 1px solid var(--secondary-color);
     display: flex;
     flex-direction: column;
     padding: 16px 16px;
     align-items: center;
+    background-image: url(../../../../assets/login-bg.svg);
+    background-size: cover;
     .title {
         font-weight: 500;
         font-size: 24px;
@@ -16,12 +18,19 @@
     .input-form {
         align-self: flex-start;
     }
-    .label {
+    .input-label {
         font-weight: 400;
         font-size:16px;
         
     }
     .input-field {
         padding : 8px 6px;
+    }
+    .sub-title {
+        font-weight: 500;
+        font-size: 20px;
+    }
+    button {
+        font-size: 18px;
     }
 }

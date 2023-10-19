@@ -1,3 +1,4 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
 <div class="login-modal-container">
   <div
     class="border-round h-3rem w-3rem bg-primary shadow-4 flex flex-column justify-content-center align-items-center">
@@ -19,17 +20,28 @@
     <span class="color-acc">Prof</span>jecteurs
   </div>
   <div class="p-component input-form mt-4 w-full">
-    <span class="p-float-label">
+    <span class="p-float-label input-label">
         Username
       <input class="input-field w-full mt-2" pInputText id="username" />
     </span>
-    <span class="p-float-label mt-4">
+    <span class="p-float-label input-label mt-4">
         Password
       <input class="input-field w-full mt-2" pInputText id="username" />
     </span>
-    <span class="p-float-label text-right mt-2">Forgot password?</span>
-    <div class="mt-6 w-full">
-    <p-button label="login" class="w-full"></p-button>
+    <div class="mt-2 flex justify-content-between">
+    <div class="flex gap-2">
+      <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
+      <span class="p-float-label">Remember me</span>
     </div>
+    <span class="p-float-label text-right">Forgot password?</span>
+
+    </div>
+    <button pButton label="login" class="p-button p-button-rounded mt-4 w-full"></button>
+    <div class="pt-4 pb-4">
+      <hr />
+    </div>
+    <div class="flex justify-content-center">
+      <span class="p-float-label sub-title mb-2">Don't have an account?</span></div>
+      <button pButton label="register" class="p-button-secondary p-button-rounded w-full mt-2" ></button>
   </div>
 </div>
