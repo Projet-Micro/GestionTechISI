@@ -1,99 +1,50 @@
-p-dialog {
-    border-radius: 16px;
-    border: 1px solid var(--secondary-color);
-    display: block;
-    padding: 32px 32px;
-    width: 800px;
-    height: 800px;
-    align-items: center;
-    background-size: cover;
-    .title {
-        font-weight: 500;
-        font-size: 24px;
-        color: var(--primary-color);
-    }
-    .input-form {
-        align-self: flex-start;
-    }
-    .input-label {
-        font-weight: 400;
-        font-size:16px;
-        
-    }
-    .input-field {
-        padding : 8px 6px;
-    }
-    .sub-title {
-        font-weight: 500;
-        font-size: 20px;
-    }
-    .link {
-        color : var(--primary-color);
-        &:hover {
-            text-decoration: underline;
-            
-        }
-    }
-    button {
-        font-size: 18px;
-    }
 
-    .logo {
-        height: 48px;
-        width: 48px;
-        border-radius: 4px;
-        margin-right: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .svg-container {
-            width: fit-content;
-            height: 30px;
-        }
+p-dialog {
+  .title {
+    font-family: 'MarkPro';
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--primary-color);
+  }
+  .input-form {
+    align-self: flex-start;
+  }
+  .input-label {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .input-field {
+    padding: 16px;
+  }
+  .sub-title {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .link {
+    text-decoration: none;
+    color: var(--primary-color);
+    &:hover {
+      text-decoration: underline;
     }
-    .title {
-        margin-right: auto;
+  }
+  button {
+    font-size: 18px;
+  }
+
+  .logo {
+    height: 48px;
+    width: 48px;
+    border-radius: 4px;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .svg-container {
+      width: fit-content;
+      height: 30px;
     }
+  }
+  .title {
+    margin-right: auto;
+  }
 }
-// .login-modal-container {
-//     width : 350px;
-//     height: 570px;
-//     border-radius: 8px;
-//     border: 1px solid var(--secondary-color);
-//     display: flex;
-//     flex-direction: column;
-//     padding: 16px 16px;
-//     align-items: center;
-//     background-image: url(../../../../assets/login-bg.svg);
-//     background-size: cover;
-//     .title {
-//         font-weight: 500;
-//         font-size: 24px;
-//         color: var(--primary-color);
-//     }
-//     .input-form {
-//         align-self: flex-start;
-//     }
-//     .input-label {
-//         font-weight: 400;
-//         font-size:16px;
-        
-//     }
-//     .input-field {
-//         padding : 8px 6px;
-//     }
-//     .sub-title {
-//         font-weight: 500;
-//         font-size: 20px;
-//     }
-//     .link {
-//         color : var(--primary-color);
-//         &:hover {
-//             text-decoration: underline;
-            
-//         }
-//     }
-//     button {
-//         font-size: 18px;
-//     }
-// }

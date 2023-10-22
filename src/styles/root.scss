@@ -1,5 +1,9 @@
 @import "primeicons/primeicons.css";
 @import "primeng/resources/primeng.css";
+@font-face {
+    font-family: MarkPro;
+    src: url(../assets/fonts/MarkPro/Mark-Pro.ttf);
+}
 :root {
     --primary-color: #3536E6;
     --accent-color: #05B2DC;
