@@ -1,0 +1,73 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<p-dialog
+  header="Login"
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '450px', height: '600px' }">
+  <ng-template pTemplate="header">
+    <div class="logo bg-primary shadow-4">
+      <div class="svg-container">
+        <svg width="40" height="30" viewBox="0 0 282 100" fill="none">
+          <rect y="6" width="282" height="88" rx="20" fill="#fff" />
+          <circle cx="170" cy="50" r="50" fill="#fff" />
+          <path
+            d="M207 50c0 21.54-16.789 39-37.5 39S132 71.54 132 50s16.789-39 37.5-39S207 28.46 207 50Z"
+            fill="#3536E6" />
+          <circle cx="187.5" cy="36.5" r="7.5" fill="#fff" />
+          <path stroke="#3536E6" d="M0 47.5h120m100 0h62" />
+          <path fill="#3536E6" d="M20 19h60v15H20z" />
+          <path
+            d="M24 94h46v5c0 8.284-6.716 15-15 15H39c-8.284 0-15-6.716-15-15v-5Zm186 0h46v5c0 8.284-6.716 15-15 15h-16c-8.284 0-15-6.716-15-15v-5Z"
+            fill="#fff" />
+        </svg>
+      </div>
+    </div>
+    <div class="p-component title">
+      <span class="color-acc">Prof</span>jecteurs
+    </div>
+  </ng-template>
+  <div class="p-component input-form mt-4 w-full">
+    <span class="p-float-label input-label"> Username </span>
+    <input
+      type="text"
+      class="input-field w-full mt-2 p-inputtext"
+      pInputText
+      placeholder="Username"
+      id="username" />
+
+    <span class="p-float-label input-label mt-4"> Password </span>
+    <p-password
+      id="password"
+      type="password"
+      [feedback]="false"
+      placeholder="Password"
+      styleClass="p-password p-component p-inputwrapper p-input-icon-right w-full mt-2"
+      inputStyleClass="w-full"
+      [toggleMask]="true"></p-password>
+
+    <div class="mt-2 flex justify-content-between">
+      <div class="flex gap-2">
+        <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
+        <span class="p-float-label">Remember me</span>
+      </div>
+      <a class="p-float-label text-right link" href="#">Forgot password?</a>
+    </div>
+    <p-button
+      label="Login"
+      severity="primary"
+      styleClass="mt-3 w-full"
+      size="large"></p-button>
+    <div class="pt-4 pb-4">
+      <hr />
+    </div>
+    <div class="flex justify-content-center">
+      <span class="p-float-label sub-title mb-2">Don't have an account?</span>
+    </div>
+    <p-button
+      label="Register"
+      severity="secondary"
+      styleClass="mt-2 w-full"
+      size="large"
+      [outlined]="true"></p-button>
+  </div>
+</p-dialog>
