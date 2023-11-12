@@ -26,48 +26,50 @@
       <span class="color-acc">Prof</span>jecteurs
     </div>
   </ng-template>
-  <div class="p-component input-form mt-4 w-full">
-    <span class="p-float-label input-label"> Username </span>
-    <input
-      type="text"
-      class="input-field w-full mt-2 p-inputtext"
-      pInputText
-      placeholder="Username"
-      id="username" />
+  <form>
+    <div class="p-component input-form mt-4 w-full">
+      <span class="p-float-label input-label"> Username </span>
+      <input
+        type="text"
+        class="input-field w-full mt-2 p-inputtext"
+        pInputText
+        placeholder="Username"
+        id="username" />
 
-    <span class="p-float-label input-label mt-4"> Password </span>
-    <p-password
-      id="password"
-      type="password"
-      [feedback]="false"
-      placeholder="Password"
-      styleClass="p-password p-component p-inputwrapper p-input-icon-right w-full mt-2"
-      inputStyleClass="w-full"
-      [toggleMask]="true"></p-password>
+      <span class="p-float-label input-label mt-4"> Password </span>
+      <p-password
+        id="password"
+        type="password"
+        [feedback]="false"
+        placeholder="Password"
+        styleClass="p-password p-component p-inputwrapper p-input-icon-right w-full mt-2"
+        inputStyleClass="w-full"
+        [toggleMask]="true"></p-password>
 
-    <div class="mt-2 flex justify-content-between">
-      <div class="flex gap-2">
-        <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
-        <span class="p-float-label">Remember me</span>
+      <div class="mt-2 flex justify-content-between">
+        <div class="flex gap-2">
+          <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
+          <span class="p-float-label">Remember me</span>
+        </div>
+        <a class="p-float-label text-right link" href="#">Forgot password?</a>
       </div>
-      <a class="p-float-label text-right link" href="#">Forgot password?</a>
+      <p-button
+        label="Login"
+        severity="primary"
+        styleClass="mt-3 w-full"
+        size="large"></p-button>
+      <div class="pt-4 pb-4">
+        <hr />
+      </div>
+      <div class="flex justify-content-center">
+        <span class="p-float-label sub-title mb-2">Don't have an account?</span>
+      </div>
+      <p-button
+        label="Register"
+        severity="secondary"
+        styleClass="mt-2 w-full"
+        size="large"
+        [outlined]="true"></p-button>
     </div>
-    <p-button
-      label="Login"
-      severity="primary"
-      styleClass="mt-3 w-full"
-      size="large"></p-button>
-    <div class="pt-4 pb-4">
-      <hr />
-    </div>
-    <div class="flex justify-content-center">
-      <span class="p-float-label sub-title mb-2">Don't have an account?</span>
-    </div>
-    <p-button
-      label="Register"
-      severity="secondary"
-      styleClass="mt-2 w-full"
-      size="large"
-      [outlined]="true"></p-button>
-  </div>
+  </form>
 </p-dialog>

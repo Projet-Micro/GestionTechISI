@@ -6,9 +6,10 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { DividerModule } from 'primeng/divider';
 import { DialogModule } from 'primeng/dialog';
 import { PasswordModule } from 'primeng/password';
+import { AuthenticationComponent } from './authentication.component';
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [LoginComponent, AuthenticationComponent],
   imports: [
     CommonModule,
     PasswordModule,
