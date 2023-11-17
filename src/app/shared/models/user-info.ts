@@ -1,5 +1,5 @@
 export interface UserInfo {
-    id?: number;
-    roles?: {};
+    id: number;
+    status?: boolean;
     accessToken?: string;
 }

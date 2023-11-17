@@ -8,7 +8,7 @@ import {AuthService} from "./shared/services/authentication/auth.service";
 })
 export class AppComponent {
   title = 'Profjecteur';
-  user = {roles:["ROLE_USER"]}
+  user = {status:null}
 
 
   isAuthenticated$ = this.authService.isAuthenticated$.pipe(shareReplay(1));

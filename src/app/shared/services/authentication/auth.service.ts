@@ -7,7 +7,7 @@ import {TokenStorageService} from "./token-storage.service";
 import {UserInfo} from "../../models/user-info";
 
 
-const BASE_URL = 'http://localhost:8086';
+const BASE_URL = 'https://profjector-back.onrender.com/';
 
 
 @Injectable({
@@ -24,13 +24,17 @@ export class AuthService {
               private messageService:MessageService,) { }
 
   login(user: UserInfo) {
-    this.http.post<any>(this.getUrl()+"/signin", user).subscribe(
+    this.http.post<UserInfo>(this.getUrl()+"/signin", user).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.token);
-        this.tokenStorage.saveUser(data);
-        this.setIsAuthenticated(true);
-        this.isAuthenticated.next(true);
-        this.router.navigateByUrl('/home');},
+        if (!data.status){
+          this.tokenStorage.saveToken(data.accessToken);
+          this.tokenStorage.saveUser(data);
+          this.setIsAuthenticated(true);
+          this.isAuthenticated.next(true);
+          this.router.navigateByUrl('/home');
+        }
+        else this.messageService.add({severity:"error",summary:"User Not Authorized!", detail:"This is an Admin only dashboard!"})
+        },
       err => {
         if(err.error == null)
             this.messageService.add({severity:"error",summary:"Login Failed!",detail:"Bad Credentials: Email and/or Password are incorrect"})
@@ -63,12 +67,12 @@ export class AuthService {
     return window.sessionStorage.getItem("isLoggedIn") !== 'false';
   }
 
-    private setIsAuthenticated(isAuthenticated: boolean) {
-        window.sessionStorage.setItem('isLoggedIn', String(isAuthenticated))
-    }
+  private setIsAuthenticated(isAuthenticated: boolean) {
+    window.sessionStorage.setItem('isLoggedIn', String(isAuthenticated))
+  }
 
   private getUrl() {
-    return `${BASE_URL}/login`;
+    return `${BASE_URL}/api/users/login`;
   }
 
 }

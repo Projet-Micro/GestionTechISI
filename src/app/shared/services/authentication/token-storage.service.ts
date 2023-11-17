@@ -12,11 +12,11 @@ export class TokenStorageService {
 
   signOut(){
     window.sessionStorage.clear();
-    window.sessionStorage.setItem("auth-user", JSON.stringify({roles:["ROLE_USER"]}));
+    window.sessionStorage.setItem("auth-user", JSON.stringify({status:null}));
   }
-  public saveToken(token: string){
+  public saveToken(token?: string){
     window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY, token);
+    window.sessionStorage.setItem(TOKEN_KEY, String(token));
   }
   public getToken(){
     return window.sessionStorage.getItem(TOKEN_KEY);

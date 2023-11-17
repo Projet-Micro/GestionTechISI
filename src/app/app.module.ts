@@ -12,6 +12,9 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
+import {MessageService} from "primeng/api";
+import {AuthService} from "./shared/services/authentication/auth.service";
+import {HttpClientModule} from "@angular/common/http";
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
@@ -19,6 +22,7 @@ import { CoreModule } from './core/core.module';
     ButtonModule,
     SplitButtonModule,
     MenubarModule,
+    HttpClientModule,
 
     CoreModule,
     AuthenticationModule,
@@ -26,7 +30,7 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [AuthService,MessageService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
