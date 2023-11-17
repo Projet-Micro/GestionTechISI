@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import {MessageService} from "primeng/api";
 import {AuthService} from "./shared/services/authentication/auth.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {HttpInterceptorService} from "./shared/services/interceptors/http-interceptor.service";
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
@@ -22,15 +23,18 @@ import {HttpClientModule} from "@angular/common/http";
     ButtonModule,
     SplitButtonModule,
     MenubarModule,
-    HttpClientModule,
 
+    //core modules
+    HttpClientModule,
     CoreModule,
     AuthenticationModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
   ],
-  providers: [AuthService,MessageService],
+  providers: [AuthService,MessageService,
+    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
