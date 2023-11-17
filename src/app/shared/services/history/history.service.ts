@@ -29,19 +29,19 @@ export class HistoryService {
   }
 
   rentProjector(History: HistoryLogInfo) {
-    return this.http.post<HistoryLogInfo>(this.getUrl(), History);
+    return this.http.post<any>(this.getUrl(), History);
   }
 
   updateHistory(History: HistoryLogInfo) {
-    return this.http.put<HistoryLogInfo>(this.getUrlWithID(History.id), History);
+    return this.http.put<any>(this.getUrlWithID(History.id), History);
   }
 
   deleteHistoryLog(id: number) {
-    return this.http.delete<number>(this.getUrlWithID(id));
+    return this.http.delete<any>(this.getUrlWithID(id));
   }
 
   deleteAllLogs(){
-    return this.http.delete<number>(this.getUrl());
+    return this.http.delete<any>(this.getUrl());
   }
 
   private getUrl() {

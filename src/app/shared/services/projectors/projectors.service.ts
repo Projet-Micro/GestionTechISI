@@ -29,22 +29,22 @@ export class ProjectorsService {
   }
 
   createProjector(Projector: ProjectorInfo) {
-    return this.http.post<ProjectorInfo>(this.getUrl(), Projector);
+    return this.http.post<any>(this.getUrl(), Projector);
   }
 
   updateProjector(Projector: ProjectorInfo) {
-    return this.http.put<ProjectorInfo>(this.getUrlWithID(Projector.id), Projector);
+    return this.http.put<any>(this.getUrlWithID(Projector.id), Projector);
   }
 
   deleteProjector(id: number) {
-    return this.http.delete<any>(this.getUrlWithID(id));
+    return this.http.delete<number>(this.getUrlWithID(id));
   }
 
   private getUrl() {
     return `${BASE_URL}/${this.model}`;
   }
 
-  private getUrlWithID(id: any) {
+  private getUrlWithID(id: number) {
     return `${this.getUrl()}/${id}`;
   }
 }
