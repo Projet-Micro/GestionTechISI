@@ -7,7 +7,7 @@ import { DividerModule } from 'primeng/divider';
 import { DialogModule } from 'primeng/dialog';
 import { PasswordModule } from 'primeng/password';
 import { AuthenticationComponent } from './authentication.component';
-
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [LoginComponent, AuthenticationComponent],
   imports: [
@@ -17,7 +17,8 @@ import { AuthenticationComponent } from './authentication.component';
     CheckboxModule,
     DividerModule,
     DialogModule,
+    FormsModule,
   ],
-  exports: [LoginComponent],
+  exports: [AuthenticationComponent],
 })
 export class AuthenticationModule {}

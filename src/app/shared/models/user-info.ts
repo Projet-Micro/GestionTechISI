@@ -4,6 +4,7 @@ export interface UserInfo {
   lastName: string;
   NIC: number;
   email: string;
+  PSW: string;
   status?: boolean;
   accessToken?: string;
 }

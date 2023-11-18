@@ -26,15 +26,18 @@
       <span class="color-acc">Prof</span>jecteurs
     </div>
   </ng-template>
-  <form>
+  <form (ngSubmit)="UpdateUser()">
     <div class="p-component input-form mt-4 w-full">
-      <span class="p-float-label input-label"> Username </span>
+      <span class="p-float-label input-label"> Email </span>
       <input
         type="text"
         class="input-field w-full mt-2 p-inputtext"
         pInputText
-        placeholder="Username"
-        id="username" />
+        [(ngModel)]="user.email"
+        placeholder="Email"
+        id="email"
+        name="email"
+         />
 
       <span class="p-float-label input-label mt-4"> Password </span>
       <p-password
@@ -44,7 +47,9 @@
         placeholder="Password"
         styleClass="p-password p-component p-inputwrapper p-input-icon-right w-full mt-2"
         inputStyleClass="w-full"
-        [toggleMask]="true"></p-password>
+        [toggleMask]="true"
+        [(ngModel)]="user.PSW"
+        name="password"></p-password>
 
       <div class="mt-2 flex justify-content-between">
         <div class="flex gap-2">
@@ -57,7 +62,8 @@
         label="Login"
         severity="primary"
         styleClass="mt-3 w-full"
-        size="large"></p-button>
+        size="large"
+        type="submit" ></p-button>
       <div class="pt-4 pb-4">
         <hr />
       </div>
@@ -69,7 +75,8 @@
         severity="secondary"
         styleClass="mt-2 w-full"
         size="large"
-        [outlined]="true"></p-button>
+        [outlined]="true"
+        ></p-button>
     </div>
   </form>
 </p-dialog>
