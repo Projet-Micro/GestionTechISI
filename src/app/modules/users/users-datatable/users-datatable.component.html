@@ -1,22 +1,18 @@
-<!-- users-datatable.component.html -->
-<div *ngIf="users.length > 0; else noUsers">
-  <table>
-    <thead>
-      <tr>
-        <th>User ID</th>
-        <th>Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
-        <td>{{ user.firstName }}</td>
-        <td>{{ user.lastName }}</td>
-        <td>{{ user.status }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<ng-template #noUsers>
-  <p>No Users available.</p>
-</ng-template>
+<p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Email</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-users>
+        <tr>
+            <td>{{ users.id }}</td>
+            <td>{{ users.FirstName }}</td>
+            <td>{{ users.LastName}}</td>
+            <td>{{ users.email }}</td>
+        </tr>
+    </ng-template>
+</p-table>
