@@ -1,28 +1,32 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {MessageService} from "primeng/api";
-import {UserInfo} from "../../models/user-info";
+import { HttpClient } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+import { UserInfo } from '../../models/user-info';
 
-const BASE_URL = 'https://profjector-back.onrender.com/';
+const BASE_URL = 'https://profjector-back.onrender.com';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsersService {
   model = 'api/users';
 
-  constructor(    private http: HttpClient,
-                  private messageService: MessageService
-  ) { }
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
 
-  getUser(id:number){
+  getUser(id: number) {
     return this.http.get<UserInfo>(this.getUrlWithID(id));
   }
 
   getAllUsers(displayNotification: boolean) {
     if (displayNotification) {
-      this.messageService.add({severity:'info', summary:'User Fetched!', detail:"Getting all users"})
-
+      this.messageService.add({
+        severity: 'info',
+        summary: 'User Fetched!',
+        detail: 'Getting all users',
+      });
     }
     return this.http.get<UserInfo[]>(this.getUrl());
   }
@@ -46,5 +50,4 @@ export class UsersService {
   private getUrlWithID(id: number) {
     return `${this.getUrl()}/${id}`;
   }
-
 }
