@@ -1,29 +1,32 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {MessageService} from "primeng/api";
-import {ProjectorInfo} from "../../models/projector-info";
+import { HttpClient } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+import { ProjectorInfo } from '../../models/projector-info';
 
 const BASE_URL = 'https://profjector-back.onrender.com';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProjectorsService {
-
   model = 'api/Projectors';
 
-  constructor(    private http: HttpClient,
-                  private messageService: MessageService
-  ) { }
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService
+  ) {}
 
-  getProjector(id:number){
+  getProjector(id: number) {
     return this.http.get<ProjectorInfo>(this.getUrlWithID(id));
   }
 
   getAllProjectors(displayNotification: boolean) {
     if (displayNotification) {
-      this.messageService.add({severity:'info', summary:'Projector Fetched!', detail:"Getting all projectors"})
-
+      this.messageService.add({
+        severity: 'info',
+        summary: 'Projector Fetched!',
+        detail: 'Getting all projectors',
+      });
     }
     return this.http.get<ProjectorInfo[]>(this.getUrl());
   }
