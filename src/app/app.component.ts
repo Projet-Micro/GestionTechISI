@@ -19,6 +19,8 @@ export class AppComponent {
       window.sessionStorage.setItem("auth-user", JSON.stringify(this.user));
   }
 
+
+
   logout() {
     this.authService.logout();
   }

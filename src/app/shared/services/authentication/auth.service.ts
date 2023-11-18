@@ -70,7 +70,7 @@ export class AuthService {
     console.log(
       'NEW USER: ' + JSON.stringify(user) + '\n HAS BEEN REGISTERED!'
     );
-    this.http.post<any>(this.getUrl() + '/signup', user).subscribe(
+    this.http.post<any>(this.getUrl(), user).subscribe(
       data => {
         this.messageService.add({
           severity: 'success',
@@ -106,6 +106,6 @@ export class AuthService {
   }
 
   private getUrl() {
-    return `${BASE_URL}/api/users/login`;
+    return `${BASE_URL}/api/users`;
   }
 }
