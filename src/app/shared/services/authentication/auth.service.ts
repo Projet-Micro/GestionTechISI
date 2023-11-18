@@ -7,7 +7,7 @@ import {TokenStorageService} from "./token-storage.service";
 import {UserInfo} from "../../models/user-info";
 
 
-const BASE_URL = 'https://profjector-back.onrender.com/';
+const BASE_URL = 'https://profjector-back.onrender.com/api/users';
 
 
 @Injectable({
@@ -24,7 +24,7 @@ export class AuthService {
               private messageService:MessageService,) { }
 
   login(user: UserInfo) {
-    this.http.post<UserInfo>(this.getUrl()+"/signin", user).subscribe(
+    this.http.post<UserInfo>(this.getUrl()+"/login", user).subscribe(
       data => {
         if (!data.status){
           this.tokenStorage.saveToken(data.accessToken);
@@ -52,7 +52,7 @@ export class AuthService {
 
   register(user:UserInfo){
     console.log("NEW USER: "+JSON.stringify(user)+"\n HAS BEEN REGISTERED!")
-    this.http.post<any>(this.getUrl()+"/signup", user).subscribe(
+    this.http.post<any>(this.getUrl(), user).subscribe(
       data => {
           this.messageService.add({severity:'success', summary:'User Registered!', detail:data.message})
       },
@@ -72,7 +72,7 @@ export class AuthService {
   }
 
   private getUrl() {
-    return `${BASE_URL}/api/users/login`;
+    return `${BASE_URL}/api/users`;
   }
 
 }

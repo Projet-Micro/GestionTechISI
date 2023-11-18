@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {TokenStorageService} from "../authentication/token-storage.service";
 import {HTTP_INTERCEPTORS, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
 import {Observable} from "rxjs";
-const TOKEN_HEADER_KEY = 'x-access-token';       // for Spring Boot back-end
+const TOKEN_HEADER_KEY = 'x-access-token';
 
 @Injectable({
   providedIn: 'root'

@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {MessageService} from "primeng/api";
 import {HistoryLogInfo} from "../../models/history-log-info";
 
-const BASE_URL = 'https://profjector-back.onrender.com/';
+const BASE_URL = 'https://profjector-back.onrender.com';
 
 @Injectable({
   providedIn: 'root'
