@@ -13,10 +13,15 @@ import { SplitButtonModule } from 'primeng/splitbutton';
 import { UsersModule } from './modules/users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import { MessageService } from 'primeng/api';
+import {ConfirmationService, MessageService} from 'primeng/api';
 import { AuthService } from './shared/services/authentication/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './shared/services/interceptors/http-interceptor.service';
+import {UsersComponent} from "./modules/users/users.component";
+import {DialogService} from "primeng/dynamicdialog";
+import {ConfirmDialogModule} from "primeng/confirmdialog";
+import {ConfirmPopupModule} from "primeng/confirmpopup";
+import {ToastModule} from "primeng/toast";
 @NgModule({
   declarations: [AppComponent, HeaderComponent, FooterComponent],
   imports: [
@@ -33,10 +38,15 @@ import { HttpInterceptorService } from './shared/services/interceptors/http-inte
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ConfirmDialogModule,
+    ConfirmPopupModule,
+    ToastModule,
   ],
   providers: [
     AuthService,
     MessageService,
+    DialogService,
+    ConfirmationService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,

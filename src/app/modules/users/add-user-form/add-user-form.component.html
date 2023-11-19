@@ -1,0 +1,118 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<form (submit)="addUser()">
+  <div class="p-component input-form mt-4 w-full">
+    <span class="p-float-label input-label"> First Name </span>
+    <input
+      type="text"
+      class="input-field w-full mt-2 p-inputtext"
+      pInputText
+      [(ngModel)]="user.FirstName"
+      name="firstName"
+      required
+      #firstName="ngModel"
+      placeholder="Foulen"
+      id="firstName" />
+    <p-message
+      severity="error"
+      text="Firstname is required"
+      *ngIf="!firstName.valid && firstName.dirty">
+    </p-message>
+
+    <span class="p-float-label input-label"> Last Name </span>
+    <input
+      type="text"
+      class="input-field w-full mt-2 p-inputtext"
+      pInputText
+      [(ngModel)]="user.LastName"
+      name="lastName"
+      required
+      #lastName="ngModel"
+      placeholder="Ben Foulen"
+      id="lastName" />
+    <p-message
+      severity="error"
+      text="Last name is required"
+      *ngIf="!lastName.valid && lastName.dirty">
+    </p-message>
+
+    <span class="p-float-label input-label"> Email </span>
+    <input
+      type="email"
+      class="input-field w-full mt-2 p-inputtext"
+      pInputText
+      [(ngModel)]="user.email"
+      #email="ngModel"
+      name="email"
+      required
+      placeholder="Email"
+      id="email" />
+    <p-message
+      severity="error"
+      text="Email is required"
+      *ngIf="!email.valid && email.dirty">
+    </p-message>
+
+    <span class="p-float-label input-label"> NIC </span>
+    <input
+      type="text"
+      class="input-field w-full mt-2 p-inputtext"
+      pInputText
+      [(ngModel)]="user.NIC"
+      minlength="8"
+      maxlength="8"
+      name="nic"
+      required
+      #nic="ngModel"
+      placeholder="12345678"
+      id="nic" />
+    <p-message
+      severity="error"
+      text="NIC is required"
+      *ngIf="nic.invalid && (nic.dirty || nic.touched)">
+    </p-message>
+
+    <span class="p-float-label input-label mt-4"> Password </span>
+    <p-password
+      id="password"
+      type="password"
+      [feedback]="false"
+      [(ngModel)]="user.PSW"
+      placeholder="Password"
+      name="psw"
+      required
+      #psw="ngModel"
+      styleClass="p-password p-component p-inputwrapper p-input-icon-right w-full mt-2"
+      inputStyleClass="w-full"
+      [toggleMask]="true"></p-password>
+    <p-message
+      severity="error"
+      text="Password is invalid!"
+      *ngIf="psw.invalid && (psw.dirty || psw.touched)">
+    </p-message>
+
+    <div class="mt-2 flex justify-content-between">
+      <div class="flex gap-2">
+        <p-checkbox
+          [(ngModel)]="isAdmin"
+          [binary]="true"
+          name="adminCheck"
+          inputId="binary">
+        </p-checkbox>
+        <span class="p-float-label">Admin ?</span>
+      </div>
+    </div>
+    <p-button
+      label="Add User"
+      type="submit"
+      [disabled]="
+        email.invalid! ||
+        psw!.invalid! ||
+        firstName.invalid! ||
+        lastName.invalid! ||
+        nic.invalid!
+      "
+      severity="primary"
+      styleClass="mt-3 w-full"
+      size="large"></p-button>
+  </div>
+</form>

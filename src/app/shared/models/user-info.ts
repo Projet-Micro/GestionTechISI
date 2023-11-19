@@ -1,10 +1,11 @@
 export interface UserInfo {
   id: number;
-  firstName: string;
-  lastName: string;
+  FirstName: string;
+  LastName: string;
   NIC: number;
+  PSW?: string;
   email: string;
-  PSW: string;
-  status?: boolean;
+  status?: boolean | null;
+  admin?: string;
   accessToken?: string;
 }
