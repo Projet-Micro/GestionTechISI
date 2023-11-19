@@ -11,8 +11,8 @@ export class AuthenticationComponent {
   constructor(private authService: AuthService) {
     this.user = {
       id: 0,
-      firstName: '',
-      lastName: '',
+      FirstName: '',
+      LastName: '',
       NIC: 0,
       email: '',
       PSW: '',

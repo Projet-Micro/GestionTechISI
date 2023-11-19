@@ -14,8 +14,8 @@ export class LoginComponent {
   constructor(private modalService: ModalService) {
     this.user = {
       id: 0,
-      firstName: '',
-      lastName: '',
+      FirstName: '',
+      LastName: '',
       NIC: 0,
       email: '',
       PSW: '',
