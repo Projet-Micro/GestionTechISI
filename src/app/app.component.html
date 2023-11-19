@@ -1,3 +1,2 @@
-<app-header></app-header>
-<app-authentication></app-authentication>
-<app-users-datatable></app-users-datatable>
+<app-header *ngIf="isAuthenticated$"></app-header>
+<router-outlet></router-outlet>

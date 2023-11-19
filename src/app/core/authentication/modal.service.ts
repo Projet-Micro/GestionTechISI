@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ModalService {
-  private visible = false;
+  private visible = true;
 
   get isVisible() {
     return this.visible;

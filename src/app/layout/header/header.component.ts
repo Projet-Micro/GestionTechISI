@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/core/authentication/modal.service';
 import { MenuItem } from 'primeng/api';
-
+import { AuthService } from 'src/app/shared/services/authentication/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -59,11 +58,4 @@ export class HeaderComponent implements OnInit {
       },
     ];
   }
-  get visible() {
-    return this.modalService.isVisible;
-  }
-  showDialog() {
-    this.modalService.showDialog();
-  }
-  constructor(private modalService: ModalService) {}
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/authentication/auth.service';
 import { UserInfo } from 'src/app/shared/models/user-info';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
@@ -8,7 +9,11 @@ import { UserInfo } from 'src/app/shared/models/user-info';
 })
 export class AuthenticationComponent {
   user: UserInfo;
-  constructor(private authService: AuthService) {
+  rememberUser = false;
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.user = {
       id: 0,
       firstName: '',
@@ -18,8 +23,12 @@ export class AuthenticationComponent {
       PSW: '',
     };
   }
-  login($event: any) {
-    this.user = $event;
+
+  rememberUserHandler(rememberUser: boolean) {
+    this.rememberUser = rememberUser;
+  }
+  login(userUpdateEvent: UserInfo) {
+    this.user = userUpdateEvent;
     this.loginRequestHandler();
   }
   loginRequestHandler = (): void => {
@@ -27,6 +36,7 @@ export class AuthenticationComponent {
       data => {
         console.log('Login Successful:', data);
         this.user = data;
+        this.router.navigateByUrl('/');
       },
       error => {
         console.error('Login Error:', error);

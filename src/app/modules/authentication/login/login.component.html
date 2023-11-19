@@ -1,11 +1,6 @@
-<!-- eslint-disable @angular-eslint/template/elements-content -->
-<p-dialog
-  header="Login"
-  [(visible)]="visible"
-  [modal]="true"
-  [style]="{ width: '450px', height: '600px' }">
-  <ng-template pTemplate="header">
-    <div class="logo bg-primary shadow-4">
+<div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 m-auto">
+    <div class="text-center mb-5">
+        <div class="logo bg-primary shadow-4 m-auto">
       <div class="svg-container">
         <svg width="40" height="30" viewBox="0 0 282 100" fill="none">
           <rect y="6" width="282" height="88" rx="20" fill="#fff" />
@@ -22,13 +17,15 @@
         </svg>
       </div>
     </div>
-    <div class="p-component title">
+          <div class="p-component title text-900 text-3xl font-medium mb-3 mt-3">
       <span class="color-acc">Prof</span>jecteurs
     </div>
-  </ng-template>
-  <form (ngSubmit)="UpdateUser()">
-    <div class="p-component input-form mt-4 w-full">
-      <span class="p-float-label input-label"> Email </span>
+        <span class="text-600 font-medium line-height-3">Don't have an account?</span>
+        <a class="font-medium no-underline ml-2 text-blue-500 cursor-pointer">Create one</a>
+    </div>
+
+    <div class="login-form">
+       <label for="email" class="p-float-label input-label"> Email </label>
       <input
         type="text"
         class="input-field w-full mt-2 p-inputtext"
@@ -38,9 +35,8 @@
         id="email"
         name="email"
          />
-
-      <span class="p-float-label input-label mt-4"> Password </span>
-      <p-password
+        <label for="password" class="p-float-label input-label mt-4"> Password </label>
+        <p-password
         id="password"
         type="password"
         [feedback]="false"
@@ -51,32 +47,21 @@
         [(ngModel)]="user.PSW"
         name="password"></p-password>
 
-      <div class="mt-2 flex justify-content-between">
+        <div class="flex-inline align-items-center justify-content-between mb-3">
+ <div class="mt-2 mb-4 flex justify-content-between">
         <div class="flex gap-2">
-          <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
+          <p-checkbox [binary]="true" [(ngModel)]="rememberUser" inputId="binary" name="rememberUser"></p-checkbox>
           <span class="p-float-label">Remember me</span>
         </div>
-        <a class="p-float-label text-right link" href="#">Forgot password?</a>
+        <a class="p-float-label text-right link" href="/auth/forgot-password">Forgot password?</a>
       </div>
+
       <p-button
         label="Login"
         severity="primary"
         styleClass="mt-3 w-full"
+        icon="pi pi-user"
         size="large"
-        type="submit" ></p-button>
-      <div class="pt-4 pb-4">
-        <hr />
-      </div>
-      <div class="flex justify-content-center">
-        <span class="p-float-label sub-title mb-2">Don't have an account?</span>
-      </div>
-      <p-button
-        label="Register"
-        severity="secondary"
-        styleClass="mt-2 w-full"
-        size="large"
-        [outlined]="true"
-        ></p-button>
-    </div>
-  </form>
-</p-dialog>
+        type="submit"
+        (onClick)="UpdateUser()" ></p-button>    </div>
+</div>

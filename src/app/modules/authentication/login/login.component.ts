@@ -8,8 +8,9 @@ import { UserInfo } from 'src/app/shared/models/user-info';
 })
 export class LoginComponent {
   user: UserInfo;
-  rememberMe: boolean;
+  rememberUser = false;
   @Output() userUpdateEvent = new EventEmitter<UserInfo>();
+  @Output() rememberUserEvent = new EventEmitter<boolean>();
 
   constructor(private modalService: ModalService) {
     this.user = {
@@ -20,11 +21,11 @@ export class LoginComponent {
       email: '',
       PSW: '',
     };
-    this.rememberMe = false;
   }
 
   UpdateUser() {
     this.userUpdateEvent.emit(this.user);
+    this.rememberUserEvent.emit(this.rememberUser);
   }
 
   get visible() {

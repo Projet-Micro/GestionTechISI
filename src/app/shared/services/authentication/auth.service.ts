@@ -26,9 +26,9 @@ export class AuthService {
   ) {}
 
   login(user: UserInfo): Observable<UserInfo> {
-    return this.http.post<UserInfo>(this.getUrl(), user).pipe(
+    return this.http.post<UserInfo>(this.getUrl() + '/login', user).pipe(
       tap((data: UserInfo) => {
-        if (!data.status) {
+        if (data.status) {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
           this.setIsAuthenticated(true);
@@ -96,13 +96,14 @@ export class AuthService {
     );
   }
 
-  private getIsAuthenticated(): boolean {
+  public getIsAuthenticated(): boolean {
     return window.sessionStorage.getItem('isLoggedIn') !== 'false';
   }
 
   private setIsAuthenticated(isAuthenticated: boolean) {
     this.isAuthenticated.next(true);
     window.sessionStorage.setItem('isLoggedIn', String(isAuthenticated));
+    console.log(isAuthenticated);
   }
 
   private getUrl() {
