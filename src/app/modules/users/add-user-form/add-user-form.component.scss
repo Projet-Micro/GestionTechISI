@@ -1,0 +1,37 @@
+
+p-dialog {
+  .title {
+    font-family: 'MarkPro';
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--primary-color);
+  }
+  .input-form {
+    align-self: flex-start;
+  }
+  .input-label {
+    font-weight: 400;
+    font-size: 16px;
+  }
+  .input-field {
+    padding: 16px;
+  }
+  .sub-title {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .link {
+    text-decoration: none;
+    color: var(--primary-color);
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  button {
+    font-size: 18px;
+  }
+
+  .title {
+    margin-right: auto;
+  }
+}
