@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { AuthService } from 'src/app/shared/services/authentication/auth.service';
+import { TokenStorageService } from 'src/app/shared/services/authentication/token-storage.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -8,6 +8,11 @@ import { AuthService } from 'src/app/shared/services/authentication/auth.service
 })
 export class HeaderComponent implements OnInit {
   items: MenuItem[] | undefined;
+  username: string = '';
+  menuVisible: boolean = false;
+  constructor(private tokenStorageService: TokenStorageService) {
+    this.username = tokenStorageService.getUser().FirstName;
+  }
   ngOnInit(): void {
     this.items = [
       {

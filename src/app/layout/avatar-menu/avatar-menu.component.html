@@ -1,0 +1,10 @@
+<div class="card flex justify-content-center z-1">
+    <p-listbox [options]="menuElements" optionLabel="option" [style]="{'width':'15rem'}" [listStyle]="{'max-height': '200px'}">
+        <ng-template let-element pTemplate="item">
+        <div class="flex align-items-center gap-2" (click)="element.action()">
+            <i class="pi text-accent" [ngClass]="element.icon"></i>
+            <div>{{ element.option }}</div>
+        </div>
+        </ng-template>
+    </p-listbox>
+</div>

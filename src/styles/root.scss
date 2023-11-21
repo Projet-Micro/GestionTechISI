@@ -4,17 +4,24 @@
     font-family: MarkPro;
     src: url(../assets/fonts/MarkPro/Mark-Pro.ttf);
 }
+.p-overlaypanel .p-overlaypanel-content {
+    padding: 0 !important;
+}
 :root {
     --primary-color: #3536E6;
     --accent-color: #05B2DC;
     --secondary-color: #D6D6FA;
     --secondary-color-lighter: #FFFFFF;
     --primary-color-lighter: #3E40E7;
-    .color-acc {
+    .text-accent {
         color: var(--accent-color);
     }
     font-family: MarkPro,sans-serif;
-    .bg-color-acc {
+    .bg-text-accent {
         background-color: var(--accent-color);
     }
+    .bg-color-primary {
+        background-color: var(--primary-color);
+    }
+    
 }

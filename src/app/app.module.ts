@@ -8,28 +8,36 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
-import { SplitButtonModule } from 'primeng/splitbutton';
-
+import { AvatarMenuComponent } from './layout/avatar-menu/avatar-menu.component';
 import { UsersModule } from './modules/users/users.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
-import {ConfirmationService, MessageService} from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { AuthService } from './shared/services/authentication/auth.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpInterceptorService } from './shared/services/interceptors/http-interceptor.service';
-import {UsersComponent} from "./modules/users/users.component";
-import {DialogService} from "primeng/dynamicdialog";
-import {ConfirmDialogModule} from "primeng/confirmdialog";
-import {ConfirmPopupModule} from "primeng/confirmpopup";
-import {ToastModule} from "primeng/toast";
+import { DialogService } from 'primeng/dynamicdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmPopupModule } from 'primeng/confirmpopup';
+import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { ListboxModule } from 'primeng/listbox';
+
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    AvatarMenuComponent,
+  ],
   imports: [
     //primeng modules
     ButtonModule,
-    SplitButtonModule,
     MenubarModule,
-
+    DropdownModule,
+    ListboxModule,
+    OverlayPanelModule,
     //core modules
     HttpClientModule,
     CoreModule,
