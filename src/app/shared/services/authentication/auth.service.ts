@@ -97,15 +97,14 @@ export class AuthService {
   }
 
   public getIsAuthenticated(): boolean {
-    return window.sessionStorage.getItem('isLoggedIn') !== 'false';
+    return window.sessionStorage.getItem('isLoggedIn') === 'true';
   }
 
-  private setIsAuthenticated(isAuthenticated: boolean) {
-    this.isAuthenticated.next(true);
+  public setIsAuthenticated(isAuthenticated: boolean) {
+    this.isAuthenticated.next(isAuthenticated);
     window.sessionStorage.setItem('isLoggedIn', String(isAuthenticated));
     console.log(isAuthenticated);
   }
-
   private getUrl() {
     return `${BASE_URL}/api/users`;
   }

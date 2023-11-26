@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/authentication/auth.service';
+import { ModalVisibilityService } from 'src/app/shared/services/modal-visibility/modal-visibility.service';
 interface menuElements {
   option: string;
   icon: string;
@@ -15,7 +16,8 @@ export class AvatarMenuComponent implements OnInit {
   menuElements!: menuElements[];
   constructor(
     private router: Router,
-    private authservice: AuthService
+    private authservice: AuthService,
+    private modalservice: ModalVisibilityService
   ) {}
   ngOnInit() {
     this.menuElements = [
@@ -37,11 +39,11 @@ export class AvatarMenuComponent implements OnInit {
     ];
   }
   editProfile() {
-    this.router.navigateByUrl('editprofile');
+    this.router.navigateByUrl('edit-profile');
   }
 
   changePassword() {
-    this.router.navigateByUrl('changepassword');
+    this.modalservice.setmodalVisibility(true);
   }
 
   logout() {

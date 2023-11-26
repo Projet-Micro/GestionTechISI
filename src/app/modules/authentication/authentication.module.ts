@@ -8,8 +8,13 @@ import { DialogModule } from 'primeng/dialog';
 import { PasswordModule } from 'primeng/password';
 import { AuthenticationComponent } from './authentication.component';
 import { FormsModule } from '@angular/forms';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 @NgModule({
-  declarations: [LoginComponent, AuthenticationComponent],
+  declarations: [
+    LoginComponent,
+    AuthenticationComponent,
+    ChangePasswordComponent,
+  ],
   imports: [
     CommonModule,
     PasswordModule,
@@ -19,6 +24,6 @@ import { FormsModule } from '@angular/forms';
     DialogModule,
     FormsModule,
   ],
-  exports: [AuthenticationComponent],
+  exports: [AuthenticationComponent, ChangePasswordComponent],
 })
 export class AuthenticationModule {}

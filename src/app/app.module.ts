@@ -23,7 +23,6 @@ import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ListboxModule } from 'primeng/listbox';
-
 @NgModule({
   declarations: [
     AppComponent,

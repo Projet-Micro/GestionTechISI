@@ -1,4 +1,5 @@
-<app-header *ngIf="isAuthenticated$"></app-header>
+<app-header *ngIf="Authenticated" ></app-header>
+<app-change-password></app-change-password>
 <router-outlet></router-outlet>
 <p-toast position="top-right" [baseZIndex]="5000"></p-toast>
 <p-confirmPopup></p-confirmPopup>
