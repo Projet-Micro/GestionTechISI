@@ -4,11 +4,13 @@ import { AuthenticationComponent } from './modules/authentication/authentication
 import { authGuard } from './shared/guards/auth.guard';
 import { DashboardComponent } from './modules/dashboard-main/dashboard/dashboard.component';
 import { UsersComponent } from './modules/users/users.component';
+import { HistoryComponent } from './modules/history/history.component';
 
 const routes: Routes = [
   // { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   { path: 'auth', component: AuthenticationComponent },
   { path: 'users', component: UsersComponent, canActivate: [authGuard] },
+  { path: 'history', component: HistoryComponent, canActivate: [authGuard] },
   { path: '**', component: DashboardComponent, canActivate: [authGuard] },
 ];
 @NgModule({

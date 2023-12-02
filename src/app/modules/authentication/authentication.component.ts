@@ -15,12 +15,12 @@ export class AuthenticationComponent {
     private router: Router
   ) {
     this.user = {
-      id: 0,
       FirstName: '',
       LastName: '',
       NIC: 0,
       email: '',
       PSW: '',
+      id: 0,
     };
   }
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ModalService } from 'src/app/core/authentication/modal.service';
 import { UserInfo } from 'src/app/shared/models/user-info';
 @Component({
@@ -14,12 +14,12 @@ export class LoginComponent {
 
   constructor(private modalService: ModalService) {
     this.user = {
-      id: 0,
       FirstName: '',
       LastName: '',
       NIC: 0,
       email: '',
       PSW: '',
+      id: 0,
     };
   }
 

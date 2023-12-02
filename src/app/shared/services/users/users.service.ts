@@ -36,7 +36,7 @@ export class UsersService {
   }
 
   updateUser(user: UserInfo) {
-    return this.http.put<any>(this.getUrlWithID(user.id), user);
+    return this.http.put<any>(this.getUrlWithID(user.id ? user.id : null), user);
   }
 
   deleteUser(id: number) {
@@ -47,7 +47,7 @@ export class UsersService {
     return `${BASE_URL}/${this.model}`;
   }
 
-  private getUrlWithID(id: number) {
+  private getUrlWithID(id: number | null) {
     return `${this.getUrl()}/${id}`;
   }
 }

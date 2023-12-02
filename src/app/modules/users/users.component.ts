@@ -53,7 +53,7 @@ export class UsersComponent implements OnInit {
   @ViewChild('dt') table: Table | undefined;
 
   Users: UserInfo[] = [
-    { id: -1, FirstName: '0', LastName: '0', email: '0', NIC: 0 },
+    { id: -1, FirstName: '', LastName: '', email: '', NIC: 0 },
   ];
 
   selectedUsers?: UserInfo[];
@@ -129,7 +129,7 @@ export class UsersComponent implements OnInit {
         label: 'Delete',
         icon: 'pi pi-fw pi-user-minus',
         command: () => {
-          this.delete(User.id, true);
+          if (User.id) this.delete(User.id, true);
         },
       },
       {
@@ -217,7 +217,6 @@ export class UsersComponent implements OnInit {
       if (userInfo) {
         this.usersService.createUser(userInfo).subscribe({
           next: data => {
-
             this.messageService.add({
               severity: 'success',
               summary: 'User Added',
@@ -253,24 +252,25 @@ export class UsersComponent implements OnInit {
         user.status = true;
         break;
     }
+
     this.usersService.updateUser(user).subscribe({
       next: data => {
         console.log("I'm in ;)");
         this.messageService.add({
           severity: 'success',
           summary: 'User Updated!',
-          styleClass:'test',
+          styleClass: 'test',
           detail: data.message,
-          life:5000,
+          life: 5000,
         });
-        console.log(this.messageService)
+        console.log(this.messageService);
         this.getUsers();
       },
       error: err => {
         this.messageService.add({
           severity: 'error',
           summary: 'Update Error!',
-          styleClass:'test',
+          styleClass: 'test',
           detail: err.error.message,
         });
       },
@@ -326,7 +326,6 @@ export class UsersComponent implements OnInit {
     this.confirmationService.confirm({
       key: 'confirmDialog',
       header: 'Delete Confirmation',
-      // @ts-ignore
       message:
         this.selectedUsers!.length -
         1 +

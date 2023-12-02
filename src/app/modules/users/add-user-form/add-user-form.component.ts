@@ -9,7 +9,6 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 })
 export class AddUserFormComponent {
   user: UserInfo = {
-    id: 0,
     FirstName: '0',
     LastName: '0',
     email: '0',

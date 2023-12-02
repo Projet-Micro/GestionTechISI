@@ -42,19 +42,13 @@ export class AuthService {
         }
       }),
       catchError(err => {
-        if (err.error == null) {
+
           this.messageService.add({
             severity: 'error',
             summary: 'Login Failed!',
             detail: 'Bad Credentials: Email and/or Password are incorrect',
           });
-        } else {
-          this.messageService.add({
-            severity: 'error',
-            summary: 'Error',
-            detail: err.message,
-          });
-        }
+
         throw err;
       })
     );
