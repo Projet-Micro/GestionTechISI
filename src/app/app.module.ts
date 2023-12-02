@@ -23,12 +23,15 @@ import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ListboxModule } from 'primeng/listbox';
+import {ChartModule} from "primeng/chart";
+import {DashboardComponent} from "./modules/dashboard-main/dashboard/dashboard.component";
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     AvatarMenuComponent,
+    DashboardComponent
   ],
   imports: [
     //primeng modules
@@ -37,6 +40,7 @@ import { ListboxModule } from 'primeng/listbox';
     DropdownModule,
     ListboxModule,
     OverlayPanelModule,
+    ChartModule,
     //core modules
     HttpClientModule,
     CoreModule,
