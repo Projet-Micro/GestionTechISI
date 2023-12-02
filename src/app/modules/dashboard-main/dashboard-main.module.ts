@@ -11,5 +11,7 @@ import {ChartModule} from "primeng/chart";
     CommonModule,
     ChartModule
   ],
+  exports: [DashboardComponent],
+
 })
 export class DashboardMainModule {}
