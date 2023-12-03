@@ -24,12 +24,14 @@ import { DropdownModule } from 'primeng/dropdown';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ListboxModule } from 'primeng/listbox';
 import { DashboardMainModule } from './modules/dashboard-main/dashboard-main.module';
+import { ProjectorsComponent } from './modules/projectors/projectors.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     AvatarMenuComponent,
+    ProjectorsComponent,
   ],
   imports: [
     //primeng modules
@@ -39,6 +41,7 @@ import { DashboardMainModule } from './modules/dashboard-main/dashboard-main.mod
     ListboxModule,
     OverlayPanelModule,
     //core modules
+    DashboardMainModule,
     HttpClientModule,
     CoreModule,
     AuthenticationModule,

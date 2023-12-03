@@ -16,5 +16,7 @@ import { TimelineModule } from 'primeng/timeline';
     ButtonModule,
     TimelineModule,
   ],
+  exports: [DashboardComponent],
+
 })
 export class DashboardMainModule {}
