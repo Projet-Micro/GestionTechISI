@@ -1,8 +1,8 @@
 export interface ProjectorInfo {
-  id: number;
+  id?: number;
   brand?: string;
   serialNumber?: string;
   nbrCables?: number;
   comment?: string;
-  status?: boolean;
+  status?: number;
 }
