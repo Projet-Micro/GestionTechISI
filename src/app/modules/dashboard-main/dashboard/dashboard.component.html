@@ -1,1 +1,109 @@
-<p-chart height="20vh" type="pie" [data]="pieData" [options]="pieOption"></p-chart>
+<div class="grid pt-4 h-30vh">
+  <div class="col-8">
+    <div class="flex flex-inline flex-column">
+      <div class="w-full">
+        <p-card>
+          <ng-template pTemplate="title"
+            ><div class="flex justify-content-center text-accent font-primary">
+              Projectors to fix
+            </div></ng-template
+          >
+
+          <p-table
+            [value]="toFixProjectors"
+            styleClass="p-datatable-striped"
+            [tableStyle]="{ 'min-width': '40rem' }">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Serial Number</th>
+                <th>Number of cables</th>
+                <th>Issue</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-projector>
+              <tr>
+                <td>{{ projector.id }}</td>
+                <td>
+                  <img
+                    src="../../../../assets/projectors-logo/{{
+                      projector.brand
+                    }}-logo.png"
+                    alt="{{ projector.brand }}"
+                    class="logo" />
+                </td>
+                <td>{{ projector.serialNumber }}</td>
+                <td>{{ projector.nbrCables }}</td>
+                <td>{{ projector.comment }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+          <div class="flex justify-content-center mt-2">
+            <p-button label="See More" severity="info" (onClick)="goToProjectorstab()"></p-button>
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-4 flex justify-content-center min-h-full h-full">
+    <p-card class="w-full min-h-full">
+      <ng-template pTemplate="title"
+        ><div class="flex justify-content-center text-accent font-primary">
+          Projectors status
+        </div></ng-template
+      >
+      <div class="flex justify-content-center">
+        <p-chart
+
+          type="pie"
+          [data]="pieData"
+          [options]="pieOption"></p-chart>
+      </div>
+    </p-card>
+  </div>
+</div>
+<div class="pt-4">
+  <p-card>
+    <ng-template pTemplate="title"
+      ><div class="flex justify-content-center text-accent font-primary">
+        History
+      </div></ng-template
+    >
+    <p-table
+      [value]="historyLog"
+      styleClass="p-datatable-striped"
+      [tableStyle]="{ 'min-width': '40rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Id</th>
+          <th>User Id</th>
+          <th>Projector Id</th>
+          <th>Timeline</th>
+          <th>Comment</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-history>
+        <tr>
+          <td>{{ history[0].id }}</td>
+          <td>{{ history[0].user_id }}</td>
+          <td>{{ history[0].proj_id }}</td>
+          <td class="w-4">
+            <p-timeline [value]="history[1]" layout="horizontal" align="top" >
+              <ng-template pTemplate="marker" let-event>
+                 <span class="border-circle w-1rem h-1rem" [style.backgroundColor]="event.color"></span>
+              </ng-template>
+              <ng-template pTemplate="content" let-event>
+                <div class="p-text-secondary inline-block white-space-nowrap">{{ event.date }}</div>
+              </ng-template>
+              <ng-template pTemplate="opposite" let-event>
+                {{ event.status }}
+              </ng-template>
+            </p-timeline>
+          </td>
+          <td>{{ history[0].comment }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-card>
+</div>

@@ -42,6 +42,9 @@ export class ProjectorsService {
   deleteProjector(id: number) {
     return this.http.delete<any>(this.getUrlWithID(id));
   }
+  countProjectors() {
+    return this.http.get<any>(this.getUrl()+'/get/count');
+  }
 
   private getUrl() {
     return `${BASE_URL}/${this.model}`;
