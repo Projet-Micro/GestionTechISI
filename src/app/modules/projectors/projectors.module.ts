@@ -17,9 +17,10 @@ import { ProjectorsComponent } from './projectors.component';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { InputNumberModule } from 'primeng/inputnumber';
 import {InputTextareaModule} from "primeng/inputtextarea";
+import { UpdateProjectorFormComponent } from './update-projector-form/update-projector-form.component';
 
 @NgModule({
-  declarations: [ProjectorsComponent, AddProjectorFormComponent],
+  declarations: [ProjectorsComponent, AddProjectorFormComponent, UpdateProjectorFormComponent],
   imports: [
     CommonModule,
     TableModule,

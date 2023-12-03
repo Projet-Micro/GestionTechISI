@@ -1,0 +1,71 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<form (submit)="updateProjector()">
+    <div class="p-component input-form mt-4 w-full">
+        <span class="p-float-label input-label"> Brand Name </span>
+        <input
+                type="text"
+                class="input-field w-full mt-2 p-inputtext"
+                pInputText
+                [(ngModel)]="projector.brand"
+                name="brand"
+                required
+                #brand="ngModel"
+                placeholder="exp: Lenovo"
+                id="brand" />
+        <p-message
+                severity="error"
+                text="A valid brand is required"
+                *ngIf="!brand.valid && brand.dirty">
+        </p-message>
+
+        <span class="p-float-label input-label"> Serial Number </span>
+        <input
+                type="text"
+                class="input-field w-full mt-2 p-inputtext"
+                pInputText
+                [(ngModel)]="projector.serialNumber"
+                name="serialNumber"
+                required
+                #serialNumber="ngModel"
+                placeholder="exp: 1AD5X2"
+                id="serialNumber" />
+        <p-message
+                severity="error"
+                text="A valid serial number is required"
+                *ngIf="!serialNumber.valid && serialNumber.dirty">
+        </p-message>
+
+        <span class="p-float-label input-label"> Cables </span>
+        <input
+                type="number"
+                class="input-field w-full mt-2 p-inputtext"
+                [(ngModel)]="projector.nbrCables"
+                #nbrCables="ngModel"
+                name="nbrCables"
+                required
+                placeholder="exp: 2"
+                id="nbrCables" />
+        <p-message
+                severity="error"
+                text="Number of cables is required"
+                *ngIf="!nbrCables.valid && nbrCables.dirty">
+        </p-message>
+
+        <span class="p-float-label input-label"> Comments </span>
+        <textarea
+                type="text"
+                class="input-field w-full mt-2 p-inputtext"
+                pInputTextarea
+                [(ngModel)]="projector.comment"
+                name="comment"
+                placeholder="exp: Missing multiprise - Display flickers slightly"
+                id="comment"></textarea>
+        <p-button
+                label="Add Projector"
+                type="submit"
+                [disabled]="nbrCables.invalid! || brand.invalid! || serialNumber.invalid!"
+                severity="primary"
+                styleClass="mt-3 w-full"
+                size="large"></p-button>
+    </div>
+</form>
