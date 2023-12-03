@@ -11,7 +11,7 @@
     --primary-color: #3536E6;
     --accent-color: #05B2DC;
     --secondary-color: #D6D6FA;
-    --secondary-color-lighter: #FFFFFF;
+    --secondary-color-lighter: #f4f4f4;
     --primary-color-lighter: #3E40E7;
     .text-accent {
         color: var(--accent-color);
@@ -23,12 +23,15 @@
     .bg-color-primary {
         background-color: var(--primary-color);
     }
-    
-    
+    .font-primary {
+        font-family: MarkPro,sans-serif;
+    }
+      
 }
 body,html
 {
     height:100%;
+    background-color: var(--secondary-color-lighter);
 }
 :host
 {
