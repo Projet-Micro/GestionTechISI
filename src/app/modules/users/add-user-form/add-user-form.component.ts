@@ -9,10 +9,6 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 })
 export class AddUserFormComponent {
   user: UserInfo = {
-    FirstName: '0',
-    LastName: '0',
-    email: '0',
-    NIC: 0,
   };
 
   isAdmin: boolean = false;

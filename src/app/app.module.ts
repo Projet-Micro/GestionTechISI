@@ -23,15 +23,15 @@ import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
 import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { ListboxModule } from 'primeng/listbox';
-import { DashboardMainModule } from './modules/dashboard-main/dashboard-main.module';
-import { ProjectorsComponent } from './modules/projectors/projectors.component';
+import {DashboardMainModule} from "./modules/dashboard-main/dashboard-main.module";
+import {InputTextModule} from "primeng/inputtext";
+import {ProjectorsModule} from "./modules/projectors/projectors.module";
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     AvatarMenuComponent,
-    ProjectorsComponent,
   ],
   imports: [
     //primeng modules
@@ -46,13 +46,14 @@ import { ProjectorsComponent } from './modules/projectors/projectors.component';
     CoreModule,
     AuthenticationModule,
     UsersModule,
+    ProjectorsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ConfirmDialogModule,
     ConfirmPopupModule,
     ToastModule,
-    DashboardMainModule,
+    InputTextModule,
   ],
   providers: [
     AuthService,

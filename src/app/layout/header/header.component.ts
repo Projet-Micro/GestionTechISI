@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   username: string = '';
   menuVisible: boolean = false;
   constructor(private tokenStorageService: TokenStorageService) {
-    this.username = this.tokenStorageService.getUser().FirstName;
+    this.username = this.tokenStorageService.getUser().FirstName!;
   }
   ngOnInit(): void {
     this.items = [

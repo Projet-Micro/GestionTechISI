@@ -13,7 +13,7 @@ import { AddUserFormComponent } from './add-user-form/add-user-form.component';
   styleUrls: ['./users.component.scss'],
 })
 export class UsersComponent implements OnInit {
-  statuses: any[] = [];
+  statuses: { label:string; value:string }[] = [];
 
   tableOptions = [
     {
@@ -85,7 +85,7 @@ export class UsersComponent implements OnInit {
   }
   private getUsers() {
     this.usersService.getAllUsers(false).subscribe({
-      next: (data: any[]) => {
+      next: (data: UserInfo[]) => {
         data.forEach(user => {
           const newUser: UserInfo = user;
           switch (user.status) {
@@ -149,7 +149,7 @@ export class UsersComponent implements OnInit {
     ];
   }
 
-  getStatus(isAdmin: any) {
+  getStatus(isAdmin: string) {
     if (isAdmin == '1') return 'Admin';
     if (isAdmin == '0') return 'User';
     return 'No Access';
@@ -297,8 +297,7 @@ export class UsersComponent implements OnInit {
   private makeUsersAll() {
     this.confirmationService.confirm({
       key: 'confirmDialog',
-      header: 'Delete Confirmation',
-      // @ts-ignore
+      header: 'Make Admin Confirmation',
       message:
         this.selectedUsers!.length -
         1 +
@@ -325,7 +324,7 @@ export class UsersComponent implements OnInit {
   private revokeUserAccess() {
     this.confirmationService.confirm({
       key: 'confirmDialog',
-      header: 'Delete Confirmation',
+      header: 'Revoke Users Confirmation',
       message:
         this.selectedUsers!.length -
         1 +

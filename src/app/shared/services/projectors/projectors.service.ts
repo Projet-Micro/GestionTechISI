@@ -36,11 +36,11 @@ export class ProjectorsService {
   }
 
   updateProjector(Projector: ProjectorInfo) {
-    return this.http.put<any>(this.getUrlWithID(Projector.id), Projector);
+    return this.http.put<any>(this.getUrlWithID(Projector.id!), Projector);
   }
 
   deleteProjector(id: number) {
-    return this.http.delete<number>(this.getUrlWithID(id));
+    return this.http.delete<any>(this.getUrlWithID(id));
   }
   countProjectors() {
     return this.http.get<any>(this.getUrl()+'/get/count');

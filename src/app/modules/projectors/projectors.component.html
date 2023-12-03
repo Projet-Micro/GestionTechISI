@@ -1,1 +1,180 @@
-<p>projectors works!</p>
+<p-table
+  #dt
+  [value]="Projectors"
+  dataKey="id"
+  scrollHeight="61.5vh"
+  [(selection)]="selectedProjectors"
+  (onRowSelect)="onRowSelect()"
+  styleClass="p-datatable-users p-datatable-sm"
+  [rowHover]="true"
+  [rows]="10"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[10, 25, 50]"
+  [loading]="loading"
+  responsiveLayout="scroll"
+  [paginator]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [filterDelay]="0"
+  [globalFilterFields]="['brand', 'serialNumber']">
+  <ng-template pTemplate="caption">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      ">
+      Projectors List
+      <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input
+          pInputText
+          type="text"
+          (input)="search($event)"
+          placeholder="Search..." />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>
+        <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+      </th>
+      <th pSortableColumn="id">
+        <div class="flex justify-content-between align-items-center">
+          Id
+          <p-sortIcon field="id"></p-sortIcon>
+        </div>
+      </th>
+      <th pSortableColumn="brand">
+        <div class="flex justify-content-between align-items-center">
+          Brand
+          <p-sortIcon field="brand"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="brand"
+            display="menu"
+            class="ml-auto"></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="serialNumber">
+        <div class="flex justify-content-between align-items-center">
+          Serial Number
+          <p-sortIcon field="serialNumber"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="serialNumber"
+            display="menu"
+            class="ml-auto"></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="nbrCables">
+        <div class="flex justify-content-between align-items-center">
+          Number of Cables
+          <p-sortIcon field="nbrCables"></p-sortIcon>
+          <p-columnFilter
+            type="text"
+            field="nbrCables"
+            display="menu"
+            class="ml-auto"></p-columnFilter>
+        </div>
+      </th>
+      <th pSortableColumn="status">
+        <div class="flex justify-content-between align-items-center">
+          Status
+          <p-sortIcon field="status"></p-sortIcon>
+          <p-columnFilter
+            field="status"
+            matchMode="equals"
+            display="menu"
+            class="ml-auto">
+            <ng-template
+              pTemplate="filter"
+              let-value
+              let-filter="filterCallback">
+              <p-dropdown
+                [ngModel]="value"
+                [options]="statuses"
+                (onChange)="filter($event.value)"
+                placeholder="Any">
+                <ng-template let-option pTemplate="item">
+                  <span [class]="'user-badge status-' + option.value">{{
+                    option.label
+                  }}</span>
+                </ng-template>
+              </p-dropdown>
+            </ng-template>
+          </p-columnFilter>
+        </div>
+      </th>
+      <th style="width: 8rem">
+        <div style="text-align: center">
+          <button
+            pButton
+            type="button"
+            class="p-button-secondary"
+            icon="pi pi-bars"
+            (click)="menu.toggle($event)"> </button>
+          <p-menu
+            #menu
+            [popup]="true"
+            appendTo="body"
+            [showTransitionOptions]="'125ms'"
+            [hideTransitionOptions]="'125ms'"
+            [model]="tableOptions"></p-menu>
+        </div>
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-projector>
+    <tr
+      [pTooltip]="projector.comment"
+      [showDelay]="250"
+      tooltipPosition="bottom">
+      <td>
+        <p-tableCheckbox [value]="projector"></p-tableCheckbox>
+      </td>
+      <td>
+        <span class="p-column-title">Id</span>
+        {{ projector.id }}
+      </td>
+      <td>
+        <span class="p-column-title">Brand</span>
+        {{ projector.brand }}
+      </td>
+      <td>
+        <span class="p-column-title">Serial Number</span>
+        {{ projector.serialNumber }}
+      </td>
+      <td>
+        <span class="p-column-title">Number of Cables</span>
+        {{ projector.nbrCables }}
+      </td>
+      <td>
+        <span class="p-column-title">Status</span>
+        <span [class]="'user-badge status-' + getStatusCss(projector.status)">{{
+          getStatus(projector.status)
+        }}</span>
+      </td>
+      <td style="text-align: center">
+        <button
+          pButton
+          type="button"
+          class="p-button-secondary"
+          icon="pi pi-cog"
+          (click)="menu.toggle($event)"> </button>
+        <p-menu
+          #menu
+          [popup]="true"
+          appendTo="body"
+          [showTransitionOptions]="'125ms'"
+          [hideTransitionOptions]="'125ms'"
+          [model]="getItems(projector)"></p-menu>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="8">No projectors found.</td>
+    </tr>
+  </ng-template>
+</p-table>
