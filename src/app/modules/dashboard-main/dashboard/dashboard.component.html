@@ -1,4 +1,4 @@
-<div class="grid pt-4 h-30vh">
+<div class="grid pt-4">
   <div class="col-7">
     <div class="flex flex-inline flex-column">
       <div class="w-full">
@@ -8,11 +8,11 @@
               Projectors to fix
             </div></ng-template
           >
-          <div style="height:50vh;">
-            <p-table
+          <div>
+            <p-table [scrollable]="true" scrollHeight="350px" [tableStyle]="{'min-width': '50rem'}"
                     [value]="toFixProjectors"
                     styleClass="p-datatable-striped"
-                    [tableStyle]="{ 'min-width': '40rem' }">
+                    >
               <ng-template pTemplate="header">
                 <tr>
                   <th>Id</th>
@@ -48,15 +48,15 @@
     </div>
   </div>
   <div class="col-5 flex justify-content-center min-h-full h-full">
-    <p-card styleClass="h-full" class="w-full min-h-full">
+    <p-card  class="w-full min-h-full">
         <ng-template pTemplate="title"
         ><div class="flex justify-content-center text-accent font-primary">
           Projectors status
         </div></ng-template
         >
-        <div style="height:56vh;" class="flex justify-content-center">
+        <div class="flex justify-content-center h-25rem">
           <p-chart
-
+                  height="400px"
                   type="pie"
                   [data]="pieData"
                   [options]="pieOption"></p-chart>
@@ -72,6 +72,7 @@
       </div></ng-template
     >
     <p-table
+      [scrollable]="true" scrollHeight="600px"
       [value]="historyLog"
       styleClass="p-datatable-striped"
       [tableStyle]="{ 'min-width': '40rem' }">

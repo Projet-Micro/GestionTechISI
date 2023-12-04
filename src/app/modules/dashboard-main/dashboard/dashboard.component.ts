@@ -50,8 +50,8 @@ export class DashboardComponent {
             this.projectorcount.unavailableProjectorsCount,
             this.projectorcount.toFixProjectorsCount,
           ],
-          backgroundColor: ['#59CE8F', '#FF1E00', '#000000'],
-          hoverBackgroundColor: ['#64d196', '#fd4141', '#313131'],
+          backgroundColor: ['#5758e9', '#3030a2', '#141545'],
+          hoverBackgroundColor: ['#7c7dee', '#3637b9', '#1b1c5c'],
         },
       ],
     };
@@ -179,13 +179,19 @@ export class DashboardComponent {
         labels: {
           color: '#495057',
           font: {
-            size: 14,
+            size: 16,
           },
+          padding: 20, // Padding between lines in the legend
         },
         position: 'bottom',
         align: 'start',
+        fullSize: true,
+        padding: 30, // Padding around the legend
       },
     },
+    responsive: true,
+    height: 400,
+    width: 400,
   };
 
   pieData = {};
