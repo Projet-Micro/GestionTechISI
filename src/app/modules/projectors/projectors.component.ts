@@ -2,10 +2,10 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Table} from "primeng/table";
 import {ProjectorInfo} from "../../shared/models/projector-info";
 import {ConfirmationService, MessageService} from "primeng/api";
-import {TokenStorageService} from "../../shared/services/authentication/token-storage.service";
 import {DialogService} from "primeng/dynamicdialog";
 import {ProjectorsService} from "../../shared/services/projectors/projectors.service";
 import {AddProjectorFormComponent} from "./add-projector-form/add-projector-form.component";
+import {UpdateProjectorFormComponent} from "./update-projector-form/update-projector-form.component";
 
 @Component({
   selector: 'app-projectors',
@@ -31,7 +31,6 @@ export class ProjectorsComponent implements OnInit{
 
   constructor(
     private projectorsService: ProjectorsService,
-    private tokenStorageService: TokenStorageService,
     public confirmationService:ConfirmationService ,
     public messageService: MessageService ,
     public dialogService: DialogService) {}
@@ -74,20 +73,20 @@ export class ProjectorsComponent implements OnInit{
     this.table?.filterGlobal(this.getValue(eventValue), 'contains');
   }
 
-  getItems(Projectors: ProjectorInfo) {
+  getItems(Projector: ProjectorInfo) {
     return [
       {
         label: 'Update Projector',
         icon: 'pi pi-users-edit',
         command: () => {
-          this.update();
+          this.update(Projector);
         },
       },
       {
         label: 'Delete',
         icon: 'pi pi-fw pi-Projectors-minus',
         command: () => {
-          if (Projectors.id) this.delete(Projectors.id, true);
+          if (Projector.id) this.delete(Projector.id, true);
         },
       },
     ];
@@ -176,10 +175,11 @@ export class ProjectorsComponent implements OnInit{
   }
 
 
-  private update() {
-      const ref = this.dialogService.open(AddProjectorFormComponent, {
-          header: 'Update Projector',
-          width: '50%',
+  private update(projector: ProjectorInfo) {
+      const ref = this.dialogService.open(UpdateProjectorFormComponent, {
+        header: 'Update Projector',
+        width: '50%',
+        data: projector,
       });
     ref.onClose.subscribe((projectorInfo: ProjectorInfo)=>{
         this.projectorsService.updateProjector(projectorInfo).subscribe({

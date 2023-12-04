@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProjectorInfo} from "../../../shared/models/projector-info";
 import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
 
@@ -7,18 +7,23 @@ import {DynamicDialogConfig, DynamicDialogRef} from "primeng/dynamicdialog";
   templateUrl: './update-projector-form.component.html',
   styleUrls: ['./update-projector-form.component.scss']
 })
-export class UpdateProjectorFormComponent {
+export class UpdateProjectorFormComponent implements OnInit{
 
   projector: ProjectorInfo = {
   };
+  isOutOfService: boolean = false;
   constructor(
       public ref: DynamicDialogRef,
       public config: DynamicDialogConfig
   ) {}
 
   updateProjector() {
-    this.projector.status = 0;
+    this.projector.status = this.isOutOfService ? 2 : this.projector.status ;
     this.ref.close(this.projector);
+  }
+
+  ngOnInit(): void {
+    this.projector = this.config.data
   }
 
 }
