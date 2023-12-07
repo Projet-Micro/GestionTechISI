@@ -78,9 +78,9 @@
       [tableStyle]="{ 'min-width': '40rem' }">
       <ng-template pTemplate="header">
         <tr>
-          <th>Id</th>
-          <th>User Id</th>
-          <th>Projector Id</th>
+          <th pSortableColumn="id">Id<p-sortIcon field="id"></p-sortIcon></th>
+          <th pSortableColumn="user_id">User Id<p-sortIcon field="user_id"></p-sortIcon></th>
+          <th pSortableColumn="proj_id">Projector Id<p-sortIcon field="proj_id"></p-sortIcon></th>
           <th>Timeline</th>
           <th>Comment</th>
         </tr>
