@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: '**', component: DashboardComponent, canActivate: [authGuard] },
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{ onSameUrlNavigation: "reload" })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
