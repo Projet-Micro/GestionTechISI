@@ -6,6 +6,7 @@ import {DialogService} from "primeng/dynamicdialog";
 import {ProjectorsService} from "../../shared/services/projectors/projectors.service";
 import {AddProjectorFormComponent} from "./add-projector-form/add-projector-form.component";
 import {UpdateProjectorFormComponent} from "./update-projector-form/update-projector-form.component";
+import {SocketService} from "../../shared/services/socket/socket.service";
 
 @Component({
   selector: 'app-projectors',
@@ -17,8 +18,8 @@ export class ProjectorsComponent implements OnInit{
   statuses: { label:string; value:string }[] = [];
 
   tableOptions = [
-    {label: 'Add Projector', icon: 'pi pi-fw pi-users-plus', command: () => { this.add(); } },
-    {label: 'Delete Selected', icon: 'pi pi-fw pi-users-plus', command: () => { this.deleteAll(); } },
+    {label: 'Add Projector', icon: 'pi pi-fw pi-plus', command: () => { this.add(); } },
+    {label: 'Delete Selected', icon: 'pi pi-fw pi-minus', command: () => { this.deleteAll(); } },
   ];
 
   loading: boolean = true;
@@ -31,13 +32,17 @@ export class ProjectorsComponent implements OnInit{
 
   constructor(
     private projectorsService: ProjectorsService,
-    public confirmationService:ConfirmationService ,
+    private socketService: SocketService,
+    public confirmationService:ConfirmationService,
     public messageService: MessageService ,
     public dialogService: DialogService) {}
 
   ngOnInit() {
     this.selectedProjectors = this.Projectors;
     this.getProjectors();
+    this.socketService.getMessages().subscribe(() => {
+      this.getProjectors()
+    });
     this.statuses = [
       { label: 'Unavailable', value: '1' },
       { label: 'Available', value: '0' },
@@ -77,14 +82,14 @@ export class ProjectorsComponent implements OnInit{
     return [
       {
         label: 'Update Projector',
-        icon: 'pi pi-users-edit',
+        icon: 'pi pi-file-edit\n',
         command: () => {
           this.update(Projector);
         },
       },
       {
-        label: 'Delete',
-        icon: 'pi pi-fw pi-Projectors-minus',
+        label: 'Delete Projector',
+        icon: 'pi pi-fw pi-trash',
         command: () => {
           if (Projector.id) this.delete(Projector.id, true);
         },

@@ -6,6 +6,7 @@ import { UserInfo } from '../../shared/models/user-info';
 import { Table } from 'primeng/table';
 import { TokenStorageService } from '../../shared/services/authentication/token-storage.service';
 import { AddUserFormComponent } from './add-user-form/add-user-form.component';
+import {SocketService} from "../../shared/services/socket/socket.service";
 
 @Component({
   selector: 'app-users',
@@ -60,6 +61,7 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
+    private socketService: SocketService,
     private tokenStorageService: TokenStorageService,
     public messageService: MessageService,
     public confirmationService: ConfirmationService,
@@ -69,6 +71,10 @@ export class UsersComponent implements OnInit {
   ngOnInit() {
     this.selectedUsers = this.Users;
     this.getUsers();
+    this.socketService.getMessages().subscribe(() => {
+      this.getUsers()
+    });
+
     this.statuses = [
       { label: 'Admin', value: '1' },
       { label: 'User', value: '0' },
